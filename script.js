@@ -21,28 +21,12 @@ document.querySelector('.check').addEventListener('click', function () {
       highscoreEl = score;
       document.querySelector('.highscore').textContent = highscoreEl;
     }
-  } else if (guess > secretNumber) {
+  } else if (guess !== secretNumber) {
     if (score > 0) {
-      document.querySelector('.message').textContent = 'Too High!';
+      document.querySelector('.message').textContent =
+        guess > secretNumber ? 'Too High!' : 'Too Low!';
       document.querySelector('.guess').value = '';
       document.querySelector('.guess').focus();
-      // score = score - 1;
-      score--;
-      if (score === 0) {
-        document.querySelector('.number').textContent = secretNumber;
-        document.querySelector('.message').textContent = 'You lost the Game!';
-        document.querySelector('body').style.background = 'red';
-      }
-    } else {
-      document.querySelector('.number').textContent = secretNumber;
-      document.querySelector('.message').textContent = 'You lost the Game!';
-    }
-  } else if (guess < secretNumber) {
-    if (score > 0) {
-      document.querySelector('.message').textContent = 'Too Low!';
-      document.querySelector('.guess').value = '';
-      document.querySelector('.guess').focus();
-      // score = score - 1;
       score--;
       if (score === 0) {
         document.querySelector('.number').textContent = secretNumber;
@@ -56,6 +40,41 @@ document.querySelector('.check').addEventListener('click', function () {
   }
   document.querySelector('.score').textContent = score;
 });
+//   else if (guess > secretNumber) {
+//     if (score > 0) {
+//       document.querySelector('.message').textContent = 'Too High!';
+//       document.querySelector('.guess').value = '';
+//       document.querySelector('.guess').focus();
+//       // score = score - 1;
+//       score--;
+//       if (score === 0) {
+//         document.querySelector('.number').textContent = secretNumber;
+//         document.querySelector('.message').textContent = 'You lost the Game!';
+//         document.querySelector('body').style.background = 'red';
+//       }
+//     } else {
+//       document.querySelector('.number').textContent = secretNumber;
+//       document.querySelector('.message').textContent = 'You lost the Game!';
+//     }
+//   } else if (guess < secretNumber) {
+//     if (score > 0) {
+//       document.querySelector('.message').textContent = 'Too Low!';
+//       document.querySelector('.guess').value = '';
+//       document.querySelector('.guess').focus();
+//       // score = score - 1;
+//       score--;
+//       if (score === 0) {
+//         document.querySelector('.number').textContent = secretNumber;
+//         document.querySelector('.message').textContent = 'You lost the Game!';
+//         document.querySelector('body').style.background = 'red';
+//       }
+//     } else {
+//       document.querySelector('.number').textContent = secretNumber;
+//       document.querySelector('.message').textContent = 'You lost the Game!';
+//     }
+//   }
+//   document.querySelector('.score').textContent = score;
+// });
 
 document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('body').style.background = 'black';
